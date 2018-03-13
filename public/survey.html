@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <title>FriendFinder</title>
+    <style>
+        * {
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron">
+        <h1 class="display-4">Friend Finder Survey</h1>
+        <p class="lead">All questions with an * are required</p>
+        <hr>
+        <div class="container col-sm-4">
+            <h2 class="display-8">About You</h2>
+            <form action="http://localhost:8080" method="POST">
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Name *</label>
+                    <input type="name" class="form-control" id="name" placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Link to Image *</label>
+                    <input type="name" class="form-control" id="imageLink" placeholder="https://yourname.com/your-image-here">
+                </div>
+        </div>
+        <hr>
+
+        <h2 class="display-8">Personality Questions</h2>
+        <p class="lead">Instructions: Please indicate the extent to which you agree or disagree with the following statements.</p>
+        <div class="container col-sm-4">
+
+            <div class="form-group">
+                <p class="lead">Question 1</p>
+                <label for="question1">I see myself as extraverted, enthusiastic.</label>
+                <select class="form-control" id="question1">
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Disagree)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <p class="lead">Question 2</p>
+                <label for="question2">I see myself as critical, quarrelsome.</label>
+                <select class="form-control" id="question2">
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Disagree)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <p class="lead">Question 3</p>
+                <label for="question3">I see myself as dependable, self-disciplined.</label>
+                <select class="form-control" id="question3">
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Disagree)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <p class="lead">Question 4</p>
+                <label for="question4">I see myself as anxious, easily upset.</label>
+                <select class="form-control" id="question4">
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Disagree)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <p class="lead">Question 5</p>
+                <label for="question5">I see myself as open to new experiences, complex.</label>
+                <select class="form-control" id="question5">
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Disagree)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <p class="lead">Question 6</p>
+                <label for="question6"> I see myself as reserved, quiet.</label>
+                <select class="form-control" id="question6">
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Disagree)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <p class="lead">Question 7</p>
+                <label for="question7">I see myself as sympathetic, warm.</label>
+                <select class="form-control" id="question7">
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Disagree)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <p class="lead">Question 8</p>
+                <label for="question8">I see myself as disorganized, careless.</label>
+                <select class="form-control" id="question8">
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Disagree)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <p class="lead">Question 9</p>
+                <label for="question9">I see myself as calm, emotionally stable.</label>
+                <select class="form-control" id="question9">
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Disagree)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <p class="lead">Question 10</p>
+                <label for="question10">I see myself as conventional, uncreative.</label>
+                <select class="form-control" id="question10">
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Disagree)</option>
+                </select>
+            </div>
+
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" id="submitSurvey" onclick="submitSurvey()" href="#" role="button">Submit</a>
+            </p>
+
+        </div>
+
+        </form>
+
+        <div class="modal" id="friendMatchModal" style="width:500px;">
+            <div class="modal-content">
+                <h1 id="matchName"></h1>
+                <p id="moreInfo"></p>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+        <script>
+            //Function to submit user survey values
+            function submitSurvey() {
+
+                var surveyInput = {
+                    name: $("#name").val().trim(),
+                    photo: $("#imageLink").val().trim(),
+                    scores: [
+                        $("#question1").val().trim(),
+                        $("#question2").val().trim(),
+                        $("#question3").val().trim(),
+                        $("#question4").val().trim(),
+                        $("#question5").val().trim(),
+                        $("#question6").val().trim(),
+                        $("#question7").val().trim(),
+                        $("#question8").val().trim(),
+                        $("#question9").val().trim(),
+                        $("#question10").val().trim(),
+                    ]
+                }
+
+                //Adding in friend match name and image to modal 
+                $.post("/api/friends", surveyInput)
+                    .done(function (data) {
+                        $(".modal-content").html("<h1>Your match is " + data.name + "!</h1>");
+                        $('<img src="' + data.image + '">').appendTo(".modal-content");
+                        $("#friendMatchModal").modal();
+                    })
+            }
+
+        </script>
+</body>
+
+</html>
