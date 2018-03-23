@@ -1,6 +1,8 @@
 # friendfinder
 Link to GitHub repository: https://github.com/peterlgustafson/friendfinder
 
+Link to Heroku: https://tranquil-ravine-34770.herokuapp.com/
+
 About: FriendFinder app takes in results from a users' survey and compares their answers with those from other users. The app will then display the name and picture of the user with the best overall match.
 
 The App: ![alt "Image"](images/friendfinder.png)
