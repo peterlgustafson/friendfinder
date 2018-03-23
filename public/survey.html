@@ -21,18 +21,17 @@
 <body>
     <div class="jumbotron">
         <h1 class="display-4">Friend Finder Survey</h1>
-        <p class="lead">All questions with an * are required</p>
+        <p class="lead">All questions with are required</p>
         <hr>
         <div class="container col-sm-4">
             <h2 class="display-8">About You</h2>
-            <!-- <form action="http://localhost:8080" method="POST"> -->
-                <form>
+            <form>
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Name *</label>
+                    <label for="exampleFormControlInput1">Name</label>
                     <input type="name" class="form-control" id="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Link to Image *</label>
+                    <label for="exampleFormControlInput1">Link to Image</label>
                     <input type="name" class="form-control" id="imageLink" required>
                 </div>
         </div>
@@ -162,11 +161,7 @@
                 </select>
             </div>
 
-            <p class="lead">
-                    <input type="submit" value="Submit" onclick="submitSurvey()">
-                <!-- <a class="btn btn-primary btn-lg" type="submit" id="submitSurvey" onclick="submitSurvey()" href="#" role="button">Submit</a> -->
-            </p>
-
+            <button value="Submit" onclick="submitSurvey()">Submit</button>
         </div>
 
         </form>
@@ -187,36 +182,37 @@
         <script>
             //Function to submit user survey values
             function submitSurvey() {
+                event.preventDefault();
                 if ($("#name").val().trim() === "" || $("#imageLink").val().trim() === "") {
                     alert("Please complete all questions.");
+                    return;
                 } else {
-                var surveyInput = {
-                    name: $("#name").val().trim(),
-                    photo: $("#imageLink").val().trim(),
-                    scores: [
-                        $("#question1").val().trim(),
-                        $("#question2").val().trim(),
-                        $("#question3").val().trim(),
-                        $("#question4").val().trim(),
-                        $("#question5").val().trim(),
-                        $("#question6").val().trim(),
-                        $("#question7").val().trim(),
-                        $("#question8").val().trim(),
-                        $("#question9").val().trim(),
-                        $("#question10").val().trim(),
-                    ]
-                }
+                    var surveyInput = {
+                        name: $("#name").val().trim(),
+                        photo: $("#imageLink").val().trim(),
+                        scores: [
+                            $("#question1").val().trim(),
+                            $("#question2").val().trim(),
+                            $("#question3").val().trim(),
+                            $("#question4").val().trim(),
+                            $("#question5").val().trim(),
+                            $("#question6").val().trim(),
+                            $("#question7").val().trim(),
+                            $("#question8").val().trim(),
+                            $("#question9").val().trim(),
+                            $("#question10").val().trim(),
+                        ]
+                    }
 
-                //Adding in friend match name and image to modal 
-                $.post("/submitSurvey", surveyInput)
-                    .done(function (data) {
-                        console.log("back from post");
-                        $(".modal-content").html("<h1>Your match is " + data.name + "!</h1>");
-                        $('<img src="' + data.image + '">').appendTo(".modal-content");
-                        $("#friendMatchModal").modal();
-                    })
+                    //Adding in friend match name and image to modal 
+                    $.post("/submitSurvey", surveyInput)
+                        .done(function (data) {
+                            $(".modal-content").html("<h1>Your match is " + data.name + "!</h1>");
+                            $('<img src="' + data.image + '">').appendTo(".modal-content");
+                            $("#friendMatchModal").modal();
+                        })
+                }
             }
-        }
 
         </script>
 </body>
