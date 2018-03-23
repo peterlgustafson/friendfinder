@@ -19,7 +19,7 @@ module.exports = function (app) {
     //Variable to calculate total difference between user scores
     var totalDifference = 0;
 
-    app.post("/api/friends", function (req, res) {
+    app.post("/submitSurvey", function (req, res) {
 
         var friendFinderMatch = {
 			name: "",

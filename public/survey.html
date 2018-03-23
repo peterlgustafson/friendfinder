@@ -25,14 +25,15 @@
         <hr>
         <div class="container col-sm-4">
             <h2 class="display-8">About You</h2>
-            <form action="http://localhost:8080" method="POST">
+            <!-- <form action="http://localhost:8080" method="POST"> -->
+                <form>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Name *</label>
-                    <input type="name" class="form-control" id="name" placeholder="John Doe">
+                    <input type="name" class="form-control" id="name" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Link to Image *</label>
-                    <input type="name" class="form-control" id="imageLink" placeholder="https://yourname.com/your-image-here">
+                    <input type="name" class="form-control" id="imageLink" required>
                 </div>
         </div>
         <hr>
@@ -49,7 +50,7 @@
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
-                    <option value="5">5 (Strongly Disagree)</option>
+                    <option value="5">5 (Strongly Agree)</option>
                 </select>
             </div>
 
@@ -61,7 +62,7 @@
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
-                    <option value="5">5 (Strongly Disagree)</option>
+                    <option value="5">5 (Strongly Agree)</option>
                 </select>
             </div>
 
@@ -73,7 +74,7 @@
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
-                    <option value="5">5 (Strongly Disagree)</option>
+                    <option value="5">5 (Strongly Agree)</option>
                 </select>
             </div>
 
@@ -85,7 +86,7 @@
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
-                    <option value="5">5 (Strongly Disagree)</option>
+                    <option value="5">5 (Strongly Agree)</option>
                 </select>
             </div>
 
@@ -97,7 +98,7 @@
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
-                    <option value="5">5 (Strongly Disagree)</option>
+                    <option value="5">5 (Strongly Agree)</option>
                 </select>
             </div>
 
@@ -109,7 +110,7 @@
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
-                    <option value="5">5 (Strongly Disagree)</option>
+                    <option value="5">5 (Strongly Agree)</option>
                 </select>
             </div>
 
@@ -121,7 +122,7 @@
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
-                    <option value="5">5 (Strongly Disagree)</option>
+                    <option value="5">5 (Strongly Agree)</option>
                 </select>
             </div>
 
@@ -133,7 +134,7 @@
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
-                    <option value="5">5 (Strongly Disagree)</option>
+                    <option value="5">5 (Strongly Agree)</option>
                 </select>
             </div>
 
@@ -145,7 +146,7 @@
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
-                    <option value="5">5 (Strongly Disagree)</option>
+                    <option value="5">5 (Strongly Agree)</option>
                 </select>
             </div>
 
@@ -157,12 +158,13 @@
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
-                    <option value="5">5 (Strongly Disagree)</option>
+                    <option value="5">5 (Strongly Agree)</option>
                 </select>
             </div>
 
             <p class="lead">
-                <a class="btn btn-primary btn-lg" id="submitSurvey" onclick="submitSurvey()" href="#" role="button">Submit</a>
+                    <input type="submit" value="Submit" onclick="submitSurvey()">
+                <!-- <a class="btn btn-primary btn-lg" type="submit" id="submitSurvey" onclick="submitSurvey()" href="#" role="button">Submit</a> -->
             </p>
 
         </div>
@@ -185,7 +187,9 @@
         <script>
             //Function to submit user survey values
             function submitSurvey() {
-
+                if ($("#name").val().trim() === "" || $("#imageLink").val().trim() === "") {
+                    alert("Please complete all questions.");
+                } else {
                 var surveyInput = {
                     name: $("#name").val().trim(),
                     photo: $("#imageLink").val().trim(),
@@ -204,13 +208,15 @@
                 }
 
                 //Adding in friend match name and image to modal 
-                $.post("/api/friends", surveyInput)
+                $.post("/submitSurvey", surveyInput)
                     .done(function (data) {
+                        console.log("back from post");
                         $(".modal-content").html("<h1>Your match is " + data.name + "!</h1>");
                         $('<img src="' + data.image + '">').appendTo(".modal-content");
                         $("#friendMatchModal").modal();
                     })
             }
+        }
 
         </script>
 </body>
